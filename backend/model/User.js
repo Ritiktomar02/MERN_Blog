@@ -18,6 +18,18 @@ const UserSchema=new mongoose.Schema({
     required: true,
     unique: true,
   },
+ 
+  role: {
+    type: String,
+    required: true,
+    enum: ["user", "admin"],
+  },
+  password: {
+    type: String,
+    required: true,
+    minlength: 8,
+  },
+
   photo: {
     public_id: {
       type: String,
@@ -28,17 +40,9 @@ const UserSchema=new mongoose.Schema({
       required: true,
     },
   },
-  role: {
-    type: String,
-    required: true,
-    enum: ["user", "admin"],
-  },
-  password: {
-    type: String,
-    required: true,
-    select: false,
-    minlength: 8,
-  },
+  token:{
+    type:String,
+  }
 },{timestamps:true})
 
 module.exports=mongoose.model("User",UserSchema);

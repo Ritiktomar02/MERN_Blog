@@ -13,6 +13,10 @@ app.use(fileupload({
 }))
 const user_route=require("./routes/User_route");
 app.use("/api/v1/user",user_route)
+
+const blog_route=require("./routes/Blog_route");
+app.use("/api/v1/blog",blog_route)
+
 require("./config/cloudinary").cloudinaryconnect();
 require("./config/database").connect();
 app.listen(PORT,()=>{
