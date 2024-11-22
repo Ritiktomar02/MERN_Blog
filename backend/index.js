@@ -1,11 +1,13 @@
 const express=require("express");
 const app=express();
 const fileupload=require("express-fileupload");
+const cookieParser =require("cookie-parser");
 require("dotenv").config();
 
 const PORT= process.env.PORT || 4000
 
 app.use(express.json());
+app.use(cookieParser())
 
 app.use(fileupload({
     useTempFiles:true,
