@@ -11,6 +11,7 @@ import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import { useContext } from "react";
 import { Authcontext } from "./context/Authcontext";
+import { Toaster } from "react-hot-toast";
 const App=()=> {
 
   const location=useLocation();
@@ -35,7 +36,7 @@ const App=()=> {
       <Route exact path="/register" element={<Register />} />
       <Route exact path="/dashboard" element={<Dashboard />} />
     </Routes>
-
+     <Toaster/>
     {!hideNavbarFooter && <Footer/>}
     </div>
   );
